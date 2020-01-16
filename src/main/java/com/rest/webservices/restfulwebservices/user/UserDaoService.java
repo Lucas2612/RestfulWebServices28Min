@@ -19,9 +19,7 @@ public class UserDaoService {
 		users.add(new User(2, "Eve", new Date()));
 		users.add(new User(3, "Jack", new Date()));
 		
-		posts.add(new Post(1, 1, "Post1Post1Post1Post1"));
-		posts.add(new Post(2, 1, "Post2Post2Post2Post2Post2"));
-		posts.add(new Post(3, 2, "Post3Post3Post3Post3"));
+
 	}
 	
 	
@@ -66,7 +64,7 @@ public class UserDaoService {
 	
 	public List<Post> findAllPosts(int userId){
 		List<Post> userPosts = posts.stream()
-				.filter(tempPost -> userId == tempPost.getUserId())
+				.filter(tempPost -> userId == tempPost.getUser().getId())
 				.collect(Collectors.toList());
 		return userPosts;
 	}
